@@ -1,0 +1,7 @@
+{
+  "ignore": [
+    "data-repo/**/*",
+    "src/mock_data/**/*",
+    "node_modules/**/*"
+  ]
+}
