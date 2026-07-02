@@ -1,0 +1,21 @@
+{
+    "id": "iss-12354",
+    "name_th": "บริษัท A จำกัด (ผู้รับรอง)",
+    "name_en": "A Company Limited (Issuer)",
+    "status": "active",
+    "services": [
+        {
+            "did": "did:web:issuer.acompany.com",
+            "type": "credential_issuer",
+            "credential_type": "ThaiNationalID",
+            "signing_pubkey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0iss...",
+            "issueble_claim": [
+                "citizen_id",
+                "name_th",
+                "name_en"
+            ],
+            "valid_from": "2026-09-08T00:00:00Z",
+            "valid_until": "2027-09-08T00:00:00Z"
+        }
+    ]
+}

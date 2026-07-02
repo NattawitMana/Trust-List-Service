@@ -1,0 +1,30 @@
+{
+  "id": "ver-56789",
+  "name_th": "บริษัท B จำกัด (ผู้ตรวจสอบ)",
+  "name_en": "B Company Limited (Verifier)",
+  "status": "active",
+  "services": [
+    {
+      "did": "did:web:verifier.bcompany.com",
+      "type": "verifier",
+      "signing_pubkey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0ver...",
+      "client_id": "https://client.bcompany.com/callback",
+      "credential_type": "ThaiNationalID",
+      "use_case": [
+        {
+          "use_case_id": "uc-bank-opening-01",
+          "purpose_th": "เปิดบัญชีธนาคารออนไลน์",
+          "purpose_en": "Online Bank Account Opening",
+          "allowed_claims": [
+            "citizen_id",
+            "name_th",
+            "name_en",
+            "date_of_birth"
+          ]
+        }
+      ],
+      "valid_from": "2026-09-08T00:00:00Z",
+      "valid_until": "2027-09-08T00:00:00Z"
+    }
+  ]
+}
