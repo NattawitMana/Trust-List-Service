@@ -13,8 +13,15 @@ const jsonFolder = path.dirname(filePath);
 const sigFolder = path.dirname(sigFilePath);
 
 async function dataSign(dataToSign) {
-    const priv_key = process.env.PRIV_KEY;
-    if (!priv_key) { throw Error('key not found!') }
+    let priv_key = process.env.PRIV_KEY;
+    if (!priv_key) {
+        try {
+            const privateKeyPath = path.resolve(__dirname, '../../private_key.pem');
+            priv_key = await fs.readFile(privateKeyPath, 'utf8');
+        } catch (err) {
+            throw Error('key not found! Please configure PRIV_KEY in .env or ensure private_key.pem exists.');
+        }
+    }
 
     if (!dataToSign) throw Error('Data not found')
 
@@ -32,27 +39,20 @@ async function syncTrustListToGit() {
     const dataRepoPath = path.resolve(__dirname, '../../data-repo');
     const git = simpleGit(dataRepoPath);
 
-    // 1. Check if the local repository has any commits (HEAD is valid)
     let hasCommits = false;
     try {
         await git.raw(['rev-parse', '--verify', 'HEAD']);
         hasCommits = true;
-    } catch (e) {
-        // No commits yet
-    }
+    } catch (e) { }
 
-    // 2. Check if the remote main branch exists
     let remoteMainExists = false;
     try {
         const lsRemoteResult = await git.raw(['ls-remote', '--heads', 'origin', 'main']);
         if (lsRemoteResult && lsRemoteResult.trim() !== '') {
             remoteMainExists = true;
         }
-    } catch (e) {
-        // Remote check failed or origin not configured
-    }
+    } catch (e) { }
 
-    // 3. Checkout or create the local 'main' branch
     if (hasCommits) {
         try {
             await git.checkout('main');
@@ -62,33 +62,27 @@ async function syncTrustListToGit() {
     } else {
         try {
             await git.checkoutLocalBranch('main');
-        } catch (e) {
-            // Already on main or cannot checkout unborn branch
-        }
+        } catch (e) { }
     }
 
-    // 4. Pull from remote if remote main exists
     if (remoteMainExists) {
         try {
-            await git.pull('origin', 'main');
+            await git.fetch('origin', 'main');
+            await git.raw(['reset', '--mixed', 'origin/main']);
         } catch (e) {
-            console.error('Error pulling from origin main:', e.message);
+            console.error('Error syncing with remote main:', e.message);
         }
     }
 
-    // 5. Stage the files
     await git.add(['Trust-List-JSON/trust_list.json', 'Trust-List-JSON/trust_list.sig']);
 
-    // 6. Commit only if there are changes to commit
     const status = await git.status();
     if (status.files.length > 0) {
         await git.commit(commitMessage);
+        await git.push('origin', 'main');
     } else {
         console.log('No changes to commit');
     }
-
-    // 7. Push to origin main
-    await git.push('origin', 'main');
 }
 
 export async function verifyTrustList() {
