@@ -91,12 +91,35 @@ async function syncTrustListToGit() {
     await git.push('origin', 'main');
 }
 
+export async function verifyTrustList() {
+
+    const data = await fs.readFile(filePath, 'utf8')
+    const trustlist = JSON.parse(data)
+    const trustlistString = JSON.stringify(trustlist, null, 2)
+
+    const signatureToCheck = await fs.readFile(sigFilePath, 'utf8')
+
+    const publicKeyPath = path.resolve(__dirname, '../../public_key.pem');
+    const publicKey = await fs.readFile(publicKeyPath, 'utf8');
+
+    const verify = crypto.createVerify('SHA256');
+    verify.update(trustlistString);
+    verify.end();
+
+    const isVerified = verify.verify(publicKey, signatureToCheck, 'base64');
+    if (!isVerified) {
+        throw new Error('Fake Data!')
+    }
+}
+
 export async function publish() {
     try {
         const trustlist = await getTrustList();
         if (!trustlist) {
             throw new Error('Trust list not found');
         }
+
+        trustlist.issued = new Date().toISOString();
 
         const dataToSign = JSON.stringify(trustlist, null, 2)
         const trustlistSignature = await dataSign(dataToSign)
@@ -105,6 +128,8 @@ export async function publish() {
         await fs.mkdir(sigFolder, { recursive: true });
         await fs.writeFile(filePath, dataToSign, 'utf8')
         await fs.writeFile(sigFilePath, trustlistSignature, 'utf8')
+
+        await verifyTrustList();
 
         await syncTrustListToGit();
 

@@ -1,7 +1,7 @@
 {
   "@context": "https://etda.or.th/trusted-list/v1",
   "id": "urn:etda:trusted-list:2026-v1",
-  "issued": "2026-07-02T04:29:53.750Z",
+  "issued": "2026-07-02T08:34:24.836Z",
   "next_update": "2026-09-08T00:00:00Z",
   "issuer": "did:web:etda.or.th",
   "entities": [
@@ -12,6 +12,7 @@
       "status": "revoked",
       "services": [
         {
+          "service_id": "srv-iss-12354-01",
           "did": "did:web:issuer.acompany.com",
           "type": "credential_issuer",
           "credential_type": "ThaiNationalID",
@@ -21,6 +22,7 @@
             "name_th",
             "name_en"
           ],
+          "status": "revoked",
           "valid_from": "2026-09-08T00:00:00Z",
           "valid_until": "2027-09-08T00:00:00Z"
         }
@@ -30,9 +32,10 @@
       "id": "ver-56789",
       "name_th": "บริษัท B จำกัด (ผู้ตรวจสอบ)",
       "name_en": "B Company Limited (Verifier)",
-      "status": "active",
+      "status": "revoked",
       "services": [
         {
+          "service_id": "srv-ver-56789-01",
           "did": "did:web:verifier.bcompany.com",
           "type": "verifier",
           "signing_pubkey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0ver...",
@@ -51,8 +54,39 @@
               ]
             }
           ],
+          "status": "revoked",
           "valid_from": "2026-09-08T00:00:00Z",
           "valid_until": "2027-09-08T00:00:00Z"
+        },
+        {
+          "service_id": "srv-iss-230-02",
+          "did": "did:web:issuer.y.com:new-service",
+          "type": "credential_issuer",
+          "credential_type": "SalaryCertificate",
+          "signing_pubkey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA...",
+          "issueble_claim": [
+            "employee_id",
+            "salary_amount",
+            "position"
+          ],
+          "status": "active",
+          "valid_from": "2026-07-03T00:00:00Z",
+          "valid_until": "2027-07-03T00:00:00Z"
+        },
+        {
+          "service_id": "srv-iss-421-02",
+          "did": "did:web:issuer.8.com:new-service",
+          "type": "credential_issuer",
+          "credential_type": "SalaryCertificate",
+          "signing_pubkey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA...",
+          "issueble_claim": [
+            "employee_id",
+            "salary_amount",
+            "position"
+          ],
+          "status": "active",
+          "valid_from": "2026-07-03T00:00:00Z",
+          "valid_until": "2027-07-03T00:00:00Z"
         }
       ]
     },
@@ -63,152 +97,13 @@
       "status": "active",
       "services": [
         {
+          "service_id": "srv-wal-98765-01",
           "did": "did:web:wallet.ccompany.com",
           "type": "wallet_provider",
           "signing_pubkey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0wal...",
+          "status": "active",
           "valid_from": "2026-09-08T00:00:00Z",
           "valid_until": "2027-09-08T00:00:00Z"
-        }
-      ]
-    },
-    {
-      "id": "iss-284",
-      "name_th": "บริษัท Denesik - Reichert จำกัด",
-      "name_en": "Cummings - Schowalter Co., Ltd.",
-      "status": "active",
-      "services": [
-        {
-          "did": "did:web:b.com",
-          "type": "credential_issuer",
-          "credential_type": "ThaiNationalID",
-          "signing_pubkey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0iss...",
-          "issueble_claim": [
-            "citizen_id",
-            "name_th",
-            "name_en"
-          ],
-          "valid_from": "2026-07-02T00:00:00Z",
-          "valid_until": "2027-07-02T00:00:00Z"
-        }
-      ]
-    },
-    {
-      "id": "iss-187",
-      "name_th": "บริษัท Farrell and Sons จำกัด",
-      "name_en": "O'Reilly, Lockman and Boehm Co., Ltd.",
-      "status": "active",
-      "services": [
-        {
-          "did": "did:web:i.com",
-          "type": "credential_issuer",
-          "credential_type": "ThaiNationalID",
-          "signing_pubkey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0iss...",
-          "issueble_claim": [
-            "citizen_id",
-            "name_th",
-            "name_en"
-          ],
-          "valid_from": "2026-07-02T00:00:00Z",
-          "valid_until": "2027-07-02T00:00:00Z"
-        }
-      ]
-    },
-    {
-      "id": "iss-900",
-      "name_th": "บริษัท Wilkinson, Weimann and Hane จำกัด",
-      "name_en": "Roberts, Pollich and Stracke Co., Ltd.",
-      "status": "active",
-      "services": [
-        {
-          "did": "did:web:7.com",
-          "type": "credential_issuer",
-          "credential_type": "ThaiNationalID",
-          "signing_pubkey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0iss...",
-          "issueble_claim": [
-            "citizen_id",
-            "name_th",
-            "name_en"
-          ],
-          "valid_from": "2026-07-02T00:00:00Z",
-          "valid_until": "2027-07-02T00:00:00Z"
-        }
-      ]
-    },
-    {
-      "id": "iss-561",
-      "name_th": "บริษัท Romaguera - Kub จำกัด",
-      "name_en": "Gislason, Nitzsche and Douglas Co., Ltd.",
-      "status": "active",
-      "services": [
-        {
-          "did": "did:web:z.com",
-          "type": "credential_issuer",
-          "credential_type": "ThaiNationalID",
-          "signing_pubkey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0iss...",
-          "issueble_claim": [
-            "citizen_id",
-            "name_th",
-            "name_en"
-          ],
-          "valid_from": "2026-07-02T00:00:00Z",
-          "valid_until": "2027-07-02T00:00:00Z"
-        }
-      ]
-    },
-    {
-      "id": "iss-69",
-      "name_th": "บริษัท Kutch, McGlynn and Nicolas จำกัด",
-      "name_en": "Harvey Group Co., Ltd.",
-      "status": "active",
-      "services": [
-        {
-          "did": "did:web:t.com",
-          "type": "credential_issuer",
-          "credential_type": "ThaiNationalID",
-          "signing_pubkey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0iss...",
-          "issueble_claim": [
-            "citizen_id",
-            "name_th",
-            "name_en"
-          ],
-          "valid_from": "2026-07-02T00:00:00Z",
-          "valid_until": "2027-07-02T00:00:00Z"
-        }
-      ]
-    },
-    {
-      "id": "iss-801",
-      "name_th": "บริษัท Homenick - Lakin จำกัด",
-      "name_en": "Olson - Powlowski Co., Ltd.",
-      "status": "active",
-      "services": [
-        {
-          "did": "did:web:1.com",
-          "type": "credential_issuer",
-          "credential_type": "ThaiNationalID",
-          "signing_pubkey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0iss...",
-          "issueble_claim": [
-            "citizen_id",
-            "name_th",
-            "name_en"
-          ],
-          "valid_from": "2026-07-02T00:00:00Z",
-          "valid_until": "2027-07-02T00:00:00Z"
-        }
-      ]
-    },
-    {
-      "id": "wal-94",
-      "name_th": "บริษัท Kub - Moore จำกัด (ผู้ให้บริการวอลเล็ต)",
-      "name_en": "Paucek, Kutch and Ferry Co., Ltd. (Wallet Provider)",
-      "status": "active",
-      "services": [
-        {
-          "did": "did:web:wallet.u.com",
-          "type": "wallet_provider",
-          "signing_pubkey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0wal...",
-          "valid_from": "2026-07-02T00:00:00Z",
-          "valid_until": "2027-07-02T00:00:00Z"
         }
       ]
     }

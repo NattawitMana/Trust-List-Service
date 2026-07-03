@@ -1,4 +1,4 @@
-import { publish } from '../services/syncService.js'
+import { publish, verifyTrustList } from '../services/syncService.js'
 
 export async function handleGitSync(req, res) {
 
@@ -15,4 +15,21 @@ export async function handleGitSync(req, res) {
         return res.status(500).json({ error: err.message || 'Internal server error' })
     }
 
+}
+
+export async function handleVerifyTrustList(req, res) {
+    try {
+        const result = await verifyTrustList();
+        return res.status(200).json({
+            message: 'trust list verified successfully',
+            result: result
+        })
+    } catch (err) {
+        console.log(err)
+        return res.status(400).json({
+            success: false,
+            error: "Security Check Failed",
+            details: err.message
+        });
+    }
 }
