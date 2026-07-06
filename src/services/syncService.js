@@ -14,7 +14,6 @@ const sigFolder = path.dirname(sigFilePath);
 
 async function dataSign(dataToSign) {
     let priv_key = process.env.PRIV_KEY;
-    console.log(priv_key)
     if (!priv_key) {
         try {
             const privateKeyPath = path.resolve(__dirname, '../../sample_private_key.pem');
