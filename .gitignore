@@ -17,7 +17,7 @@ pnpm-debug.log*
 .env.production.local
 
 # Keys and certificates
-*.pem
+# *.pem
 *.key
 private_key.pem
 
