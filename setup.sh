@@ -22,26 +22,6 @@ else
     echo ".env already exists."
 fi
 
-# 2b. Check and generate keys
-GENERATE_KEYS=false
-if [ ! -f private_key.pem ] || [ ! -f public_key.pem ]; then
-    GENERATE_KEYS=true
-fi
-
-if [ "$GENERATE_KEYS" = "true" ]; then
-    if command -v node >/dev/null 2>&1; then
-        echo "Generating private_key.pem and public_key.pem..."
-        node generateKey.js
-    else
-        echo "[WARNING] Node.js is not installed. Creating empty placeholder files..."
-        if [ ! -f private_key.pem ]; then
-            touch private_key.pem
-        fi
-        if [ ! -f public_key.pem ]; then
-            touch public_key.pem
-        fi
-    fi
-fi
 
 # 3. Setup data-repo and connect to git
 echo "Setting up data-repo..."

@@ -22,22 +22,6 @@ if not exist .env (
     echo .env already exists.
 )
 
-:: 2b. Check and generate keys
-set GENERATE_KEYS=false
-if not exist private_key.pem set GENERATE_KEYS=true
-if not exist public_key.pem set GENERATE_KEYS=true
-
-if "!GENERATE_KEYS!"=="true" (
-    where node >nul 2>&1
-    if !ERRORLEVEL! equ 0 (
-        echo Generating private_key.pem and public_key.pem...
-        node generateKey.js
-    ) else (
-        echo [WARNING] Node.js is not installed. Creating empty placeholder files...
-        if not exist private_key.pem type nul > private_key.pem
-        if not exist public_key.pem type nul > public_key.pem
-    )
-)
 
 :: 3. Setup data-repo and connect to git
 echo Setting up data-repo...
