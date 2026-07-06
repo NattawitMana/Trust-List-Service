@@ -14,9 +14,10 @@ const sigFolder = path.dirname(sigFilePath);
 
 async function dataSign(dataToSign) {
     let priv_key = process.env.PRIV_KEY;
+    console.log(priv_key)
     if (!priv_key) {
         try {
-            const privateKeyPath = path.resolve(__dirname, '../../private_key.pem');
+            const privateKeyPath = path.resolve(__dirname, '../../sample_private_key.pem');
             priv_key = await fs.readFile(privateKeyPath, 'utf8');
         } catch (err) {
             throw Error('key not found! Please configure PRIV_KEY in .env or ensure private_key.pem exists.');

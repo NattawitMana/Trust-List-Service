@@ -108,6 +108,29 @@
           "valid_until": "2027-07-02T00:00:00Z"
         }
       ]
+    },
+    {
+      "id": "iss-592",
+      "name_th": "บริษัท Dickens, Blick and Bernier จำกัด",
+      "name_en": "Waelchi, McGlynn and Watsica Co., Ltd.",
+      "status": "revoked",
+      "services": [
+        {
+          "service_id": "srv-iss-400-01",
+          "did": "did:web:v.com",
+          "type": "credential_issuer",
+          "credential_type": "ThaiNationalID",
+          "signing_pubkey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0iss...",
+          "issueble_claim": [
+            "citizen_id",
+            "name_th",
+            "name_en"
+          ],
+          "status": "active",
+          "valid_from": "2026-07-02T00:00:00Z",
+          "valid_until": "2027-07-02T00:00:00Z"
+        }
+      ]
     }
   ]
 }
