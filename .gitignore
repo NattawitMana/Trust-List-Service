@@ -20,7 +20,6 @@ pnpm-debug.log*
 *.pem
 *.key
 private_key.pem
-public_key.pem
 
 # OS metadata
 .DS_Store

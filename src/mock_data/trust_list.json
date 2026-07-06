@@ -1,7 +1,7 @@
 {
   "@context": "https://etda.or.th/trusted-list/v1",
   "id": "urn:etda:trusted-list:2026-v1",
-  "issued": "2026-07-02T08:34:24.836Z",
+  "issued": "2026-07-06T04:05:26.943Z",
   "next_update": "2026-09-08T00:00:00Z",
   "issuer": "did:web:etda.or.th",
   "entities": [
@@ -32,7 +32,7 @@
       "id": "ver-56789",
       "name_th": "บริษัท B จำกัด (ผู้ตรวจสอบ)",
       "name_en": "B Company Limited (Verifier)",
-      "status": "revoked",
+      "status": "active",
       "services": [
         {
           "service_id": "srv-ver-56789-01",
@@ -59,23 +59,8 @@
           "valid_until": "2027-09-08T00:00:00Z"
         },
         {
-          "service_id": "srv-iss-230-02",
+          "service_id": "srv-iss-441-02",
           "did": "did:web:issuer.y.com:new-service",
-          "type": "credential_issuer",
-          "credential_type": "SalaryCertificate",
-          "signing_pubkey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA...",
-          "issueble_claim": [
-            "employee_id",
-            "salary_amount",
-            "position"
-          ],
-          "status": "active",
-          "valid_from": "2026-07-03T00:00:00Z",
-          "valid_until": "2027-07-03T00:00:00Z"
-        },
-        {
-          "service_id": "srv-iss-421-02",
-          "did": "did:web:issuer.8.com:new-service",
           "type": "credential_issuer",
           "credential_type": "SalaryCertificate",
           "signing_pubkey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA...",
@@ -104,6 +89,23 @@
           "status": "active",
           "valid_from": "2026-09-08T00:00:00Z",
           "valid_until": "2027-09-08T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "wal-198",
+      "name_th": "บริษัท Hackett - Breitenberg จำกัด (ผู้ให้บริการวอลเล็ต)",
+      "name_en": "Strosin - Mann Co., Ltd. (Wallet Provider)",
+      "status": "active",
+      "services": [
+        {
+          "service_id": "srv-wal-620-01",
+          "did": "did:web:wallet.a.com",
+          "type": "wallet_provider",
+          "signing_pubkey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0wal...",
+          "status": "active",
+          "valid_from": "2026-07-02T00:00:00Z",
+          "valid_until": "2027-07-02T00:00:00Z"
         }
       ]
     }

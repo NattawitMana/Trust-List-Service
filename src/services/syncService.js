@@ -104,6 +104,8 @@ export async function verifyTrustList() {
     if (!isVerified) {
         throw new Error('Fake Data!')
     }
+
+    return trustlist
 }
 
 export async function publish() {

@@ -22,7 +22,7 @@ export async function handleVerifyTrustList(req, res) {
         const result = await verifyTrustList();
         return res.status(200).json({
             message: 'trust list verified successfully',
-            result: result
+            trustlist: result
         })
     } catch (err) {
         console.log(err)
