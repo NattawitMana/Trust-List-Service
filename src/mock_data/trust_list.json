@@ -114,6 +114,38 @@
           "valid_until": "2027-07-02T00:00:00Z"
         }
       ]
+    },
+    {
+      "id": "ver-723",
+      "name_th": "บริษัท Raynor and Sons จำกัด (ผู้ตรวจสอบ)",
+      "name_en": "Quitzon, White and O'Connell Co., Ltd. (Verifier)",
+      "status": "active",
+      "services": [
+        {
+          "service_id": "srv-ver-845-01",
+          "did": "did:web:verifier.9.com",
+          "type": "verifier",
+          "signing_pubkey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0ver...",
+          "client_id": "https://client.r.com/callback",
+          "credential_type": "ThaiNationalID",
+          "use_case": [
+            {
+              "use_case_id": "uc-s-01",
+              "purpose_th": "เปิดบัญชีและยืนยันตัวตนออนไลน์",
+              "purpose_en": "Online Account Opening and KYC",
+              "allowed_claims": [
+                "citizen_id",
+                "name_th",
+                "name_en",
+                "date_of_birth"
+              ]
+            }
+          ],
+          "status": "active",
+          "valid_from": "2026-07-02T00:00:00Z",
+          "valid_until": "2027-07-02T00:00:00Z"
+        }
+      ]
     }
   ]
 }
