@@ -7,14 +7,14 @@ import crypto from 'crypto';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const filePath = path.resolve(__dirname, '../../data-repo/Trust-List-JSON/trust_list.json');
-const sigFilePath = path.resolve(__dirname, '../../data-repo/Trust-List-JSON/trust_list.sig');
+const filePath = path.resolve(__dirname, '../../data-repo/trust_list.json');
+const sigFilePath = path.resolve(__dirname, '../../data-repo/trust_list.sig');
 const jsonFolder = path.dirname(filePath);
 const sigFolder = path.dirname(sigFilePath);
 
 async function dataSign(dataToSign) {
     let priv_key = process.env.PRIV_KEY;
-    console.log(priv_key)
+    // console.log(priv_key)
     if (!priv_key) {
         try {
             const privateKeyPath = path.resolve(__dirname, '../../sample_private_key.pem');
@@ -75,7 +75,7 @@ async function syncTrustListToGit() {
         }
     }
 
-    await git.add(['Trust-List-JSON/trust_list.json', 'Trust-List-JSON/trust_list.sig']);
+    await git.add(['trust_list.json', 'trust_list.sig']);
 
     const status = await git.status();
     if (status.files.length > 0) {
@@ -121,8 +121,8 @@ export async function publish() {
         const dataToSign = JSON.stringify(trustlist, null, 2)
         const trustlistSignature = await dataSign(dataToSign)
 
-        await fs.mkdir(jsonFolder, { recursive: true });
-        await fs.mkdir(sigFolder, { recursive: true });
+        // await fs.mkdir(jsonFolder, { recursive: true });
+        // await fs.mkdir(sigFolder, { recursive: true });
         await fs.writeFile(filePath, dataToSign, 'utf8')
         await fs.writeFile(sigFilePath, trustlistSignature, 'utf8')
 

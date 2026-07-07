@@ -15,13 +15,13 @@
 ### วิธีที่ 1: ตั้งค่าผ่านสคริปต์อัตโนมัติ (แนะนำ)
 
 #### สำหรับ Windows:
-ดับเบิ้ลคลิกไฟล์ [setup.bat](file:///c:/works/etda/trustlist%20service/setup.bat) หรือรันผ่าน Terminal:
+ดับเบิ้ลคลิกไฟล์ [setup.bat] หรือรันผ่าน Terminal:
 ```cmd
 setup.bat
 ```
 
 #### สำหรับ macOS และ Linux:
-เปิด Terminal ในโฟลเดอร์นี้และรันสคริปต์ [setup.sh](file:///c:/works/etda/trustlist%20service/setup.sh) :
+เปิด Terminal ในโฟลเดอร์นี้และรันสคริปต์ [setup.sh] :
 ```bash
 chmod +x setup.sh
 ./setup.sh

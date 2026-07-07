@@ -33,14 +33,14 @@ cd data-repo
 if not exist .git (
     echo Initializing git repository in data-repo...
     git init
-    git remote add origin https://github.com/NattawitMana/Trust-List-JSON.git
+    git remote add origin https://git.etda.or.th/vc-poc-intern/trustlist-upstream.git
     git branch -M main
     echo Pulling from remote main...
     git pull origin main
 ) else (
     echo Git repository already initialized in data-repo.
     git remote remove origin >nul 2>&1
-    git remote add origin https://github.com/NattawitMana/Trust-List-JSON.git
+    git remote add origin https://git.etda.or.th/vc-poc-intern/trustlist-upstream.git
     git branch -M main
     echo Pulling latest changes...
     git pull origin main
